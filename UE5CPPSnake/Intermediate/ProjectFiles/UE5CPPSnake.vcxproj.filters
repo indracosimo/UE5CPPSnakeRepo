@@ -11,6 +11,7 @@
     <None Include="..\..\Source\UE5CPPSnakeEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -37,6 +38,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\UE5CPPSnake\UE5CPPSnake.h">
       <Filter>Source\UE5CPPSnake</Filter>
+    </ClCompile>
+    <Filter Include="Source\UE5CPPSnake\Game">
+      <UniqueIdentifier>{7EEB8E10-8CEC-3C59-AC3C-095A14DF572B}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\CPP_Snake.cpp">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\CPP_Snake.h">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
