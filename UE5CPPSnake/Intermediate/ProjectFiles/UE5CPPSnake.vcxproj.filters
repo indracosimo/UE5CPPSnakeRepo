@@ -30,6 +30,12 @@
     <Filter Include="Source\UE5CPPSnake">
       <UniqueIdentifier>{3C4A0A51-6BC0-3E63-88EF-2C8121CFB030}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Pawn_Player.cpp">
+      <Filter>Source\UE5CPPSnake</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Pawn_Player.h">
+      <Filter>Source\UE5CPPSnake</Filter>
+    </ClCompile>
     <None Include="..\..\Source\UE5CPPSnake\UE5CPPSnake.Build.cs">
       <Filter>Source\UE5CPPSnake</Filter>
     </None>
