@@ -2,9 +2,13 @@
 
 
 #include "Pawn_Player.h"
+#include "Game/DefaultPlayerController.h"
 #include "Camera/CameraComponent.h"
 #include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
+#include "GameFramework/FloatingPawnMovement.h"
 #include "GameFramework/SpringArmComponent.h"
 
 // Sets default values
@@ -21,20 +25,10 @@ APawn_Player::APawn_Player()
 
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
-}
 
-// Called when the game starts or when spawned
-void APawn_Player::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
+	Movement = CreateDefaultSubobject<UFloatingPawnMovement>(TEXT("Movement"));
 
-// Called every frame
-void APawn_Player::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
+	MoveScale = 1.0f;
 }
 
 // Called to bind functionality to input
@@ -42,5 +36,22 @@ void APawn_Player::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	UEnhancedInputComponent* EIC = Cast<UEnhancedInputComponent>(PlayerInputComponent); //PPC = pawn player controller
+	ADefaultPlayerController* PPC = Cast<ADefaultPlayerController>(Controller);
+	check(EIC && PPC);
+	EIC->BindAction(PPC->MoveAction, ETriggerEvent::Triggered, this, &APawn_Player::Move);
+
+	ULocalPlayer* LocalPlayer = PPC->GetLocalPlayer();
+	check(LocalPlayer);
+	UEnhancedInputLocalPlayerSubsystem* 
+		Subsystem = LocalPlayer->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>();
+	check(Subsystem);
+	Subsystem->ClearAllMappings();
+	Subsystem->AddMappingContext(PPC->PawnMappingContext, 0);
 }
 
+void APawn_Player::Move(const FInputActionValue& ActionValue)
+{
+	FVector Input = ActionValue.Get<FInputActionValue::Axis3D>();
+	AddMovementInput(GetActorRotation().RotateVector(Input), MoveScale);
+}

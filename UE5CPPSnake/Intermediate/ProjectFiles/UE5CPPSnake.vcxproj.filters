@@ -54,5 +54,11 @@
     <ClCompile Include="..\..\Source\UE5CPPSnake\Game\CPP_Snake.h">
       <Filter>Source\UE5CPPSnake\Game</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\DefaultPlayerController.cpp">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\DefaultPlayerController.h">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -18,14 +18,7 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	/** Setup pawn when game starts. */
-	virtual void BeginPlay() override;
-
-	/** Cleanup pawn when game ends. */
-	//virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
-
-	/** Perform pawn updates that need to happen every frame. */
-	virtual void Tick(float DeltaSeconds) override;
+	void Move(const struct FInputActionValue& ActionValue);
 
 	UPROPERTY(EditAnywhere)
 	class USphereComponent* Sphere;
@@ -39,5 +32,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	class UCameraComponent* Camera;
 
+	UPROPERTY(EditAnywhere)
+	class UFloatingPawnMovement* Movement;
 
+	UPROPERTY(EditAnywhere)
+	float MoveScale;
 };
