@@ -20,6 +20,10 @@ public:
 
 	void Move(const struct FInputActionValue& ActionValue);
 
+	void Rotate(const struct FInputActionValue& ActionValue);
+
+	void ToggleFreeFly();	
+
 	UPROPERTY(EditAnywhere)
 	class USphereComponent* Sphere;
 
@@ -31,10 +35,16 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	class UCameraComponent* Camera;
-
+ 
 	UPROPERTY(EditAnywhere)
 	class UFloatingPawnMovement* Movement;
 
 	UPROPERTY(EditAnywhere)
 	float MoveScale;
+
+	UPROPERTY(EditAnywhere)
+	float RotateScale;
+
+	UPROPERTY(EditAnywhere)
+	uint32 bFreeFly : 1;
 };
