@@ -24,6 +24,8 @@ public:
 
 	void ToggleFreeFly();	
 
+	virtual void BeginPlay() override;
+
 	UPROPERTY(EditAnywhere)
 	class USphereComponent* Sphere;
 

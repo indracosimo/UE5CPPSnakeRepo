@@ -82,3 +82,12 @@ void APawn_Player::ToggleFreeFly()
 {
 	bFreeFly = !bFreeFly;
 }
+
+void APawn_Player::BeginPlay() //test
+{
+	Super::BeginPlay();;
+	if (Body&&Movement)
+	{
+		Movement->MaxSpeed *= Body->GetMass();
+	}
+}
