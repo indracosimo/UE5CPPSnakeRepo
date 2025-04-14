@@ -1463,3 +1463,43 @@ LogConfig: Set CVar [[r.VRS.ContrastAdaptiveShading:1]]
 [2025.04.14-10.36.33:806][959]LogUObjectHash: Compacting FUObjectHashTables data took   0.86ms
 [2025.04.14-10.36.33:859][960]LogPlayLevel: Display: Destroying online subsystem :Context_1
 [2025.04.14-10.36.44:164][ 28]LogDerivedDataCache: C:/Users/IndraCosimoBowen-Pao/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:00.000 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 0 files in 1 folders with total size 0 MiB.
+[2025.04.14-10.40.55:022][874]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 342.342041
+[2025.04.14-10.40.56:032][877]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.04.14-10.40.56:032][877]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 343.009552, Update Interval: 348.399902
+[2025.04.14-10.46.48:077][933]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 695.396423
+[2025.04.14-10.46.49:086][936]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.04.14-10.46.49:086][936]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 696.065796, Update Interval: 357.205719
+[2025.04.14-10.48.03:000][162]LogStreaming: Display: FlushAsyncLoading(540): 1 QueuedPackages, 0 AsyncPackages
+[2025.04.14-10.48.03:048][162]Candidate modules for hot reload:
+[2025.04.14-10.48.03:048][162]  UE5CPPSnake
+[2025.04.14-10.48.03:082][162]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_5.5/Engine/Build/BatchFiles/Build.bat  -ModuleWithSuffix=UE5CPPSnake,4693 UE5CPPSnakeEditor Win64 Development -Project="C:/Users/IndraCosimoBowen-Pao/source/repos/UE5CPPSnakeRepo/UE5CPPSnake/UE5CPPSnake.uproject" "C:/Users/IndraCosimoBowen-Pao/source/repos/UE5CPPSnakeRepo/UE5CPPSnake/UE5CPPSnake.uproject"  -IgnoreJunk]
+[2025.04.14-10.48.03:107][162]Warning: Starting HotReload took  0.2s.
+[2025.04.14-10.48.08:594][401]CompilerResultsLog: Using bundled DotNet SDK version: 8.0.300
+[2025.04.14-10.48.08:595][401]CompilerResultsLog: Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" -ModuleWithSuffix=UE5CPPSnake,4693 UE5CPPSnakeEditor Win64 Development -Project="C:/Users/IndraCosimoBowen-Pao/source/repos/UE5CPPSnakeRepo/UE5CPPSnake/UE5CPPSnake.uproject" "C:/Users/IndraCosimoBowen-Pao/source/repos/UE5CPPSnakeRepo/UE5CPPSnake/UE5CPPSnake.uproject"  -IgnoreJunk
+[2025.04.14-10.48.08:595][401]CompilerResultsLog: Log file: C:\Users\IndraCosimoBowen-Pao\AppData\Local\UnrealBuildTool\Log.txt
+[2025.04.14-10.48.08:595][401]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\IndraCosimoBowen-Pao\source\repos\UE5CPPSnakeRepo).
+[2025.04.14-10.48.08:595][401]CompilerResultsLog: Building UE5CPPSnakeEditor...
+[2025.04.14-10.48.08:596][401]CompilerResultsLog: Using Visual Studio 2022 14.38.33144 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2025.04.14-10.48.08:596][401]CompilerResultsLog: [Adaptive Build] Excluded from UE5CPPSnake unity file: Pawn_Player.cpp, DefaultPlayerController.cpp
+[2025.04.14-10.48.08:596][401]CompilerResultsLog: Determining max actions to execute in parallel (6 physical cores, 6 logical cores)
+[2025.04.14-10.48.08:596][401]CompilerResultsLog:   Executing up to 6 processes, one per physical core
+[2025.04.14-10.48.08:596][401]CompilerResultsLog:   Requested 1.5 GB memory per action, 3.34 GB available: limiting max parallel actions to 2
+[2025.04.14-10.48.08:596][401]CompilerResultsLog: Using Unreal Build Accelerator local executor to run 3 action(s)
+[2025.04.14-10.48.08:596][401]CompilerResultsLog:   Storage capacity 40Gb
+[2025.04.14-10.48.08:596][401]CompilerResultsLog: ---- Starting trace: 250414_124807_vs12764 ----
+[2025.04.14-10.48.08:596][401]CompilerResultsLog: UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+[2025.04.14-10.48.08:596][401]CompilerResultsLog: ------ Building 3 action(s) started ------
+[2025.04.14-10.48.08:596][401]CompilerResultsLog: [1/3] Link [x64] UnrealEditor-UE5CPPSnake-4693.lib
+[2025.04.14-10.48.08:596][401]CompilerResultsLog: [2/3] Link [x64] UnrealEditor-UE5CPPSnake-4693.dll
+[2025.04.14-10.48.08:596][401]CompilerResultsLog:    Creating object C:\Users\IndraCosimoBowen-Pao\source\repos\UE5CPPSnakeRepo\UE5CPPSnake\Binaries\Win64\UnrealEditor-UE5CPPSnake-4693.exp
+[2025.04.14-10.48.08:596][401]CompilerResultsLog: [3/3] WriteMetadata UE5CPPSnakeEditor.target (UBA disabled)
+[2025.04.14-10.48.08:596][401]CompilerResultsLog: Trace file written to C:/Users/IndraCosimoBowen-Pao/AppData/Local/UnrealBuildTool/Log.uba with size 2.9kb
+[2025.04.14-10.48.08:596][401]CompilerResultsLog: Total time in Unreal Build Accelerator local executor: 1.35 seconds
+[2025.04.14-10.48.08:596][401]CompilerResultsLog: Total execution time: 3.87 seconds
+[2025.04.14-10.48.08:596][401]LogMainFrame: MainFrame: Module compiling took 5.597 seconds
+[2025.04.14-10.48.08:596][401]LogStreaming: Display: FlushAsyncLoading(541): 1 QueuedPackages, 0 AsyncPackages
+[2025.04.14-10.48.08:694][401]LogUObjectHash: Compacting FUObjectHashTables data took   1.27ms
+[2025.04.14-10.48.09:608][401]LogUObjectHash: Compacting FUObjectHashTables data took   0.40ms
+[2025.04.14-10.48.09:627][401]Display: HotReload took  6.7s.
+[2025.04.14-10.48.09:628][401]Display: Reload/Re-instancing Complete: 1 package changed, 3 classes unchanged
+[2025.04.14-10.48.13:889][469]LogUObjectHash: Compacting FUObjectHashTables data took   0.30ms
