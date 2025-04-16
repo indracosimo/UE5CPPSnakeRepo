@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "UE5CPPSnake/Pawn_Player.h"
+#include "UE5CPPSnake/Game/Pawn_Player.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodePawn_Player() {}
 
@@ -35,45 +35,51 @@ struct Z_Construct_UClass_APawn_Player_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
 		{ "HideCategories", "Navigation" },
-		{ "IncludePath", "Pawn_Player.h" },
-		{ "ModuleRelativePath", "Pawn_Player.h" },
+		{ "IncludePath", "Game/Pawn_Player.h" },
+		{ "ModuleRelativePath", "Game/Pawn_Player.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Sphere_MetaData[] = {
 		{ "Category", "Pawn_Player" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//virtual void BeginPlay() override;\n" },
+#endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Pawn_Player.h" },
+		{ "ModuleRelativePath", "Game/Pawn_Player.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "virtual void BeginPlay() override;" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Body_MetaData[] = {
 		{ "Category", "Pawn_Player" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Pawn_Player.h" },
+		{ "ModuleRelativePath", "Game/Pawn_Player.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SpringArm_MetaData[] = {
 		{ "Category", "Pawn_Player" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Pawn_Player.h" },
+		{ "ModuleRelativePath", "Game/Pawn_Player.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Camera_MetaData[] = {
 		{ "Category", "Pawn_Player" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Pawn_Player.h" },
+		{ "ModuleRelativePath", "Game/Pawn_Player.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Movement_MetaData[] = {
 		{ "Category", "Pawn_Player" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Pawn_Player.h" },
+		{ "ModuleRelativePath", "Game/Pawn_Player.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MoveScale_MetaData[] = {
 		{ "Category", "Pawn_Player" },
-		{ "ModuleRelativePath", "Pawn_Player.h" },
+		{ "ModuleRelativePath", "Game/Pawn_Player.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RotateScale_MetaData[] = {
 		{ "Category", "Pawn_Player" },
-		{ "ModuleRelativePath", "Pawn_Player.h" },
+		{ "ModuleRelativePath", "Game/Pawn_Player.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bFreeFly_MetaData[] = {
 		{ "Category", "Pawn_Player" },
-		{ "ModuleRelativePath", "Pawn_Player.h" },
+		{ "ModuleRelativePath", "Game/Pawn_Player.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Sphere;
@@ -152,14 +158,14 @@ APawn_Player::~APawn_Player() {}
 // End Class APawn_Player
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Pawn_Player_h_Statics
+struct Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_Pawn_Player_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_APawn_Player, APawn_Player::StaticClass, TEXT("APawn_Player"), &Z_Registration_Info_UClass_APawn_Player, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APawn_Player), 2212351226U) },
+		{ Z_Construct_UClass_APawn_Player, APawn_Player::StaticClass, TEXT("APawn_Player"), &Z_Registration_Info_UClass_APawn_Player, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APawn_Player), 566516476U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Pawn_Player_h_2480377398(TEXT("/Script/UE5CPPSnake"),
-	Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Pawn_Player_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Pawn_Player_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_Pawn_Player_h_3193520493(TEXT("/Script/UE5CPPSnake"),
+	Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_Pawn_Player_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_Pawn_Player_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration
