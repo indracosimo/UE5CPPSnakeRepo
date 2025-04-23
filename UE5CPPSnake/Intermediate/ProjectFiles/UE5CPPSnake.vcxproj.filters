@@ -30,12 +30,6 @@
     <Filter Include="Source\UE5CPPSnake">
       <UniqueIdentifier>{3C4A0A51-6BC0-3E63-88EF-2C8121CFB030}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\UE5CPPSnake\Pawn_Player.cpp">
-      <Filter>Source\UE5CPPSnake</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UE5CPPSnake\Pawn_Player.h">
-      <Filter>Source\UE5CPPSnake</Filter>
-    </ClCompile>
     <None Include="..\..\Source\UE5CPPSnake\UE5CPPSnake.Build.cs">
       <Filter>Source\UE5CPPSnake</Filter>
     </None>
@@ -58,6 +52,24 @@
       <Filter>Source\UE5CPPSnake\Game</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UE5CPPSnake\Game\DefaultPlayerController.h">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\Food.cpp">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\Food.h">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\MapRoom.cpp">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\MapRoom.h">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\Pawn_Player.cpp">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\Pawn_Player.h">
       <Filter>Source\UE5CPPSnake\Game</Filter>
     </ClCompile>
   </ItemGroup>

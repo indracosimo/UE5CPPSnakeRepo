@@ -29,7 +29,7 @@ APawn_Player::APawn_Player()
 	Movement = CreateDefaultSubobject<UFloatingPawnMovement>(TEXT("Movement"));
 
 	MoveScale = 1.0f;
-	RotateScale = 50.0f;
+	RotateScale = 100.0f;
 	bFreeFly = false;	
 }
 
