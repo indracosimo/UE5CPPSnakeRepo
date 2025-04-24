@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "UE5CPPSnake",
+			"Path": "..\\Source\\UE5CPPSnake.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "UE5CPPSnakeEditor",
+			"Path": "..\\Source\\UE5CPPSnakeEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

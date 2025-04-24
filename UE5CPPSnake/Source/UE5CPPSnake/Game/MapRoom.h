@@ -22,6 +22,10 @@ public:
 	UPROPERTY(EditAnywhere)
 	class UInstancedStaticMeshComponent* Walls;
 
+	//static mesh for edges where walls collide
+	UPROPERTY(EditAnywhere)
+	class UInstancedStaticMeshComponent* Edges;
+
 	//size of grid 
 	UPROPERTY(EditAnywhere, meta = (ClampMin = 0))
 	float GridSize;

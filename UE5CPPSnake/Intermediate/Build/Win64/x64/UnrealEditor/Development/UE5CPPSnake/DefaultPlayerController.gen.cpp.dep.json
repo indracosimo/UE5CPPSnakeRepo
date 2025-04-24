@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\ehren\\onedrive\\dokument\\indra\\repos\\github\\ue5cppsnakerepo\\ue5cppsnake\\intermediate\\build\\win64\\unrealeditor\\inc\\ue5cppsnake\\uht\\defaultplayercontroller.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\ehren\\onedrive\\dokument\\indra\\repos\\github\\ue5cppsnakerepo\\ue5cppsnake\\intermediate\\build\\win64\\x64\\ue5cppsnakeeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\ehren\\onedrive\\dokument\\indra\\repos\\github\\ue5cppsnakerepo\\ue5cppsnake\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ue5cppsnake\\definitions.ue5cppsnake.h",
+            "c:\\users\\ehren\\onedrive\\dokument\\indra\\repos\\github\\ue5cppsnakerepo\\ue5cppsnake\\source\\ue5cppsnake\\game\\defaultplayercontroller.h",
+            "c:\\users\\ehren\\onedrive\\dokument\\indra\\repos\\github\\ue5cppsnakerepo\\ue5cppsnake\\intermediate\\build\\win64\\unrealeditor\\inc\\ue5cppsnake\\uht\\defaultplayercontroller.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

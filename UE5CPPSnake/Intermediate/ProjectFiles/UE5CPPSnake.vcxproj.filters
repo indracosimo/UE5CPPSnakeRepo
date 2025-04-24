@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\UE5CPPSnake.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\UE5CPPSnake.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\UE5CPPSnakeEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\UE5CPPSnake">
+      <UniqueIdentifier>{3C4A0A51-6BC0-3E63-88EF-2C8121CFB030}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\UE5CPPSnake\UE5CPPSnake.Build.cs">
+      <Filter>Source\UE5CPPSnake</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\UE5CPPSnake.cpp">
+      <Filter>Source\UE5CPPSnake</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\UE5CPPSnake.h">
+      <Filter>Source\UE5CPPSnake</Filter>
+    </ClCompile>
+    <Filter Include="Source\UE5CPPSnake\Game">
+      <UniqueIdentifier>{7EEB8E10-8CEC-3C59-AC3C-095A14DF572B}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\CPP_Snake.cpp">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\CPP_Snake.h">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\DefaultPlayerController.cpp">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\DefaultPlayerController.h">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\Food.cpp">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\Food.h">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\MapRoom.cpp">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\MapRoom.h">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\Pawn_Player.cpp">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\Pawn_Player.h">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

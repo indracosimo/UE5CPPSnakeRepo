@@ -1,0 +1,15 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/ehren/OneDrive/Dokument/Indra/repos/Github/UE5CPPSnakeRepo/UE5CPPSnake/Content/__ExternalActors__/DefaultMap/7/OC/XKVKZ7Q5FZ2U0RV2BE0LW1.uasset",
+				"C:/Users/ehren/OneDrive/Dokument/Indra/repos/Github/UE5CPPSnakeRepo/UE5CPPSnake/Content/__ExternalActors__/DefaultMap/9/8C/1ZM8GFUUH6MA49FRP9OQTU.uasset",
+				"C:/Users/ehren/OneDrive/Dokument/Indra/repos/Github/UE5CPPSnakeRepo/UE5CPPSnake/Content/BP_Pawn_Player.uasset",
+				"C:/Program Files/Epic Games/UE_5.5/Engine/Content/EngineMeshes/BackgroundMaterial.uasset"
+			]
+		}
+	]
+}
