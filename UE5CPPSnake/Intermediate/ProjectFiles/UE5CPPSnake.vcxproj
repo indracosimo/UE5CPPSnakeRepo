@@ -276,10 +276,10 @@
     <ClCompile Include="..\..\Source\UE5CPPSnake\Game\DefaultPlayerController.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\Food.cpp">
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\FoodItem.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\Food.h">
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\FoodItem.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\UE5CPPSnake\Game\MapRoom.cpp">
