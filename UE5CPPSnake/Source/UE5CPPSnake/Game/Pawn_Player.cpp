@@ -83,11 +83,89 @@ void APawn_Player::ToggleFreeFly()
 	bFreeFly = !bFreeFly;
 }
 
-//oid APawn_Player::BeginPlay() //test
+void APawn_Player::AddSegment()
+{
+	if (!Body) return;
+	if (!SegmentMesh) return;
+
+	UStaticMeshComponent* NewSegment = NewObject<UStaticMeshComponent>(this);
+
+	NewSegment->SetCollisionEnabled(ECollisionEnabled::NoCollision); //
+	NewSegment->RegisterComponent();
+	NewSegment->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepWorldTransform);
+	NewSegment->SetStaticMesh(SegmentMesh);
+
+	USceneComponent* LastComponent = (BodySegments.Num() > 0) ? BodySegments.Last() : Body;
+
+	//add segmens to body 
+	FVector SpawnLocation = LastComponent->GetComponentLocation() - LastComponent->GetForwardVector() * SegmentSpacing;
+	NewSegment->SetWorldLocation(SpawnLocation);
+
+	BodySegments.Add(NewSegment);
+}
+
+void APawn_Player::Tick(float DeltaTime) 
+{
+	Super::Tick(DeltaTime);
+
+	LastRecordedPosition += DeltaTime;
+
+	if (LastRecordedPosition >= RecordedPosition) 
+	{
+		LastRecordedPosition = 0.f;
+
+		HeadPositions.Insert(GetActorLocation(), 0);
+
+		// limits path history so it doesnt grow forever
+		int32 MaxPositions = (BodySegments.Num() + 1) * 10;
+		if (HeadPositions.Num() > MaxPositions)
+		{
+			HeadPositions.SetNum(MaxPositions);
+		}
+	}
+	UpdateBodySegments();
+}
+
+//void APawn_Player::UpdateBodySegments()
+//{
+//	const float SegmentDistance = SegmentSpacing * 2.0f; 
+//	for (int32 i = 0; i < BodySegments.Num(); ++i)
+//	{
+//		int32 Index = FMath::RoundToInt((i + 1) * SegmentDistance / (LastRecordedPosition * GetVelocity().Size()));
 //
-//	//Super::BeginPlay();;
-//	//if (Body&&Movement)
-//	//{
-//	//	Movement->MaxSpeed *= Body->GetMass();
-//	//}
+//		if (HeadPositions.IsValidIndex(Index))
+//		{
+//			FVector TargetLocation = HeadPositions[Index];
+//			FVector CurrentLocation = BodySegments[i]->GetComponentLocation();
 //
+//			FVector NewLocation = FMath::VInterpTo(CurrentLocation, TargetLocation, GetWorld()->GetDeltaSeconds(), 5.0f); //smoothing
+//			BodySegments[i]->SetWorldLocation(NewLocation);
+//		}
+//	}
+//}
+
+void APawn_Player::UpdateBodySegments()
+{
+	for (int32 i = 0; i < BodySegments.Num(); ++i)
+	{
+		float TargetDistance = (i + 1) * SegmentSpacing;
+		float Traveled = 0.0f;
+
+		FVector TargetLocation = GetActorLocation(); 
+
+		for (int32 j = 1; j < HeadPositions.Num(); ++j)
+		{
+			float Segment = FVector::Dist(HeadPositions[j - 1], HeadPositions[j]);
+			Traveled += Segment;
+			if (Traveled >= TargetDistance)
+			{
+				TargetLocation = HeadPositions[j];
+				break;
+			}
+		}
+
+		FVector CurrentLocation = BodySegments[i]->GetComponentLocation();
+		FVector NewLocation = FMath::VInterpTo(CurrentLocation, TargetLocation, GetWorld()->GetDeltaSeconds(), 5.0f);
+		BodySegments[i]->SetWorldLocation(NewLocation);
+	}
+}

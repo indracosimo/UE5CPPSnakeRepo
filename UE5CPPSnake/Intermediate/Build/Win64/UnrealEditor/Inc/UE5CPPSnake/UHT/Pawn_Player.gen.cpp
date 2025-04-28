@@ -15,6 +15,7 @@ ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UFloatingPawnMovement_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
+ENGINE_API UClass* Z_Construct_UClass_UStaticMesh_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 UE5CPPSNAKE_API UClass* Z_Construct_UClass_APawn_Player();
 UE5CPPSNAKE_API UClass* Z_Construct_UClass_APawn_Player_NoRegister();
@@ -81,6 +82,29 @@ struct Z_Construct_UClass_APawn_Player_Statics
 		{ "Category", "Pawn_Player" },
 		{ "ModuleRelativePath", "Game/Pawn_Player.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SegmentMesh_MetaData[] = {
+		{ "Category", "Segment" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//Segments\n" },
+#endif
+		{ "ModuleRelativePath", "Game/Pawn_Player.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Segments" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BodySegments_MetaData[] = {
+		{ "Category", "Pawn_Player" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Game/Pawn_Player.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SegmentSpacing_MetaData[] = {
+		{ "Category", "Snake" },
+		{ "ModuleRelativePath", "Game/Pawn_Player.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RecordedPosition_MetaData[] = {
+		{ "Category", "Pawn_Player" },
+		{ "ModuleRelativePath", "Game/Pawn_Player.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Sphere;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Body;
@@ -91,6 +115,11 @@ struct Z_Construct_UClass_APawn_Player_Statics
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_RotateScale;
 	static void NewProp_bFreeFly_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bFreeFly;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_SegmentMesh;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_BodySegments_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_BodySegments;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_SegmentSpacing;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_RecordedPosition;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -110,6 +139,11 @@ void Z_Construct_UClass_APawn_Player_Statics::NewProp_bFreeFly_SetBit(void* Obj)
 	((APawn_Player*)Obj)->bFreeFly = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APawn_Player_Statics::NewProp_bFreeFly = { "bFreeFly", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool , RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(uint8), sizeof(APawn_Player), &Z_Construct_UClass_APawn_Player_Statics::NewProp_bFreeFly_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bFreeFly_MetaData), NewProp_bFreeFly_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APawn_Player_Statics::NewProp_SegmentMesh = { "SegmentMesh", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APawn_Player, SegmentMesh), Z_Construct_UClass_UStaticMesh_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SegmentMesh_MetaData), NewProp_SegmentMesh_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APawn_Player_Statics::NewProp_BodySegments_Inner = { "BodySegments", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_APawn_Player_Statics::NewProp_BodySegments = { "BodySegments", nullptr, (EPropertyFlags)0x0010008000000009, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APawn_Player, BodySegments), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BodySegments_MetaData), NewProp_BodySegments_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APawn_Player_Statics::NewProp_SegmentSpacing = { "SegmentSpacing", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APawn_Player, SegmentSpacing), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SegmentSpacing_MetaData), NewProp_SegmentSpacing_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APawn_Player_Statics::NewProp_RecordedPosition = { "RecordedPosition", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APawn_Player, RecordedPosition), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RecordedPosition_MetaData), NewProp_RecordedPosition_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APawn_Player_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APawn_Player_Statics::NewProp_Sphere,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APawn_Player_Statics::NewProp_Body,
@@ -119,6 +153,11 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APawn_Pla
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APawn_Player_Statics::NewProp_MoveScale,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APawn_Player_Statics::NewProp_RotateScale,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APawn_Player_Statics::NewProp_bFreeFly,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APawn_Player_Statics::NewProp_SegmentMesh,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APawn_Player_Statics::NewProp_BodySegments_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APawn_Player_Statics::NewProp_BodySegments,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APawn_Player_Statics::NewProp_SegmentSpacing,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APawn_Player_Statics::NewProp_RecordedPosition,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_APawn_Player_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_APawn_Player_Statics::DependentSingletons[])() = {
@@ -161,10 +200,10 @@ APawn_Player::~APawn_Player() {}
 struct Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_Pawn_Player_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_APawn_Player, APawn_Player::StaticClass, TEXT("APawn_Player"), &Z_Registration_Info_UClass_APawn_Player, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APawn_Player), 566516476U) },
+		{ Z_Construct_UClass_APawn_Player, APawn_Player::StaticClass, TEXT("APawn_Player"), &Z_Registration_Info_UClass_APawn_Player, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APawn_Player), 634133039U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_Pawn_Player_h_3193520493(TEXT("/Script/UE5CPPSnake"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_Pawn_Player_h_806119928(TEXT("/Script/UE5CPPSnake"),
 	Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_Pawn_Player_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_Pawn_Player_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

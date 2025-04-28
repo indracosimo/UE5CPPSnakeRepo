@@ -15,6 +15,10 @@ public:
 
 	APawn_Player();
 
+	void UpdateBodySegments();
+
+	void Tick(float DeltaTime);
+
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -23,6 +27,8 @@ public:
 	void Rotate(const struct FInputActionValue& ActionValue);
 
 	void ToggleFreeFly();	
+
+	void AddSegment();
 
 	//virtual void BeginPlay() override;
 
@@ -49,4 +55,20 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	uint32 bFreeFly : 1;
+	//Segments
+	UPROPERTY(EditAnywhere, Category = "Segment")
+	UStaticMesh* SegmentMesh;
+	UPROPERTY(EditAnywhere)
+	TArray<UStaticMeshComponent*> BodySegments;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Snake")
+	float SegmentSpacing = 100.0f;
+	
+	UPROPERTY(EditAnywhere)
+	float RecordedPosition = 0.05f;
+
+	float LastRecordedPosition = 0.f;
+
+	TArray<FVector> HeadPositions;
+
 };

@@ -40,11 +40,20 @@ void AFoodItem::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* Othe
 {
 	if (OtherActor && (OtherActor!= this)) 
 	{
-		UE_LOG(LogTemp, Warning, TEXT("FoodItem::OnOverlapBegin %s"), *OtherActor->GetName());
-		//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red,
-		//	TEXT("Touched food"));
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red,
+			TEXT("Touched food"));
+
+
+		APawn_Player* Player = Cast<APawn_Player>(OtherActor);
+		if (Player) 
+		{
+			Player->AddSegment();
+			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red,
+				TEXT("GIRTH"));
+		}
 
 		Destroy();
 	}
 }
+
 

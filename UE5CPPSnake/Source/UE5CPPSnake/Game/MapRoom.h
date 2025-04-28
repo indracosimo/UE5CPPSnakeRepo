@@ -33,7 +33,16 @@ public:
 	UPROPERTY(EditAnywhere, meta = (ClampMin = 1, ClampMax = 25))
 	uint32 RoomSize;
 
+	//FOOD spawning
+	UPROPERTY(EditAnywhere, Category ="Spawning")
+	TSubclassOf<class AFoodItem> FoodItemClass;
+
+	UPROPERTY(EditAnywhere, Category = "Spawning", meta = (ClampMin = 0))
+	int32 NumFoodItems = 5;
+
 private: 
 	uint32 BuiltGridSize;
 	uint32 BuiltRoomSize;
+
+	FVector GetRandomPointInRoom() const;
 };

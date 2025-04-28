@@ -10,8 +10,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMapRoom() {}
 
 // Begin Cross Module References
+COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 ENGINE_API UClass* Z_Construct_UClass_UInstancedStaticMeshComponent_NoRegister();
+UE5CPPSNAKE_API UClass* Z_Construct_UClass_AFoodItem_NoRegister();
 UE5CPPSNAKE_API UClass* Z_Construct_UClass_AMapRoom();
 UE5CPPSNAKE_API UClass* Z_Construct_UClass_AMapRoom_NoRegister();
 UPackage* Z_Construct_UPackage__Script_UE5CPPSnake();
@@ -72,11 +74,28 @@ struct Z_Construct_UClass_AMapRoom_Statics
 		{ "ClampMin", "1" },
 		{ "ModuleRelativePath", "Game/MapRoom.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_FoodItemClass_MetaData[] = {
+		{ "Category", "Spawning" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//FOOD spawning\n" },
+#endif
+		{ "ModuleRelativePath", "Game/MapRoom.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "FOOD spawning" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_NumFoodItems_MetaData[] = {
+		{ "Category", "Spawning" },
+		{ "ClampMin", "0" },
+		{ "ModuleRelativePath", "Game/MapRoom.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Walls;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Edges;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_GridSize;
 	static const UECodeGen_Private::FUInt32PropertyParams NewProp_RoomSize;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_FoodItemClass;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_NumFoodItems;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -88,11 +107,15 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMapRoom_Stati
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMapRoom_Statics::NewProp_Edges = { "Edges", nullptr, (EPropertyFlags)0x0010000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMapRoom, Edges), Z_Construct_UClass_UInstancedStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Edges_MetaData), NewProp_Edges_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMapRoom_Statics::NewProp_GridSize = { "GridSize", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMapRoom, GridSize), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_GridSize_MetaData), NewProp_GridSize_MetaData) };
 const UECodeGen_Private::FUInt32PropertyParams Z_Construct_UClass_AMapRoom_Statics::NewProp_RoomSize = { "RoomSize", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::UInt32, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMapRoom, RoomSize), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RoomSize_MetaData), NewProp_RoomSize_MetaData) };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AMapRoom_Statics::NewProp_FoodItemClass = { "FoodItemClass", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMapRoom, FoodItemClass), Z_Construct_UClass_UClass, Z_Construct_UClass_AFoodItem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FoodItemClass_MetaData), NewProp_FoodItemClass_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AMapRoom_Statics::NewProp_NumFoodItems = { "NumFoodItems", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMapRoom, NumFoodItems), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NumFoodItems_MetaData), NewProp_NumFoodItems_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMapRoom_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMapRoom_Statics::NewProp_Walls,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMapRoom_Statics::NewProp_Edges,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMapRoom_Statics::NewProp_GridSize,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMapRoom_Statics::NewProp_RoomSize,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMapRoom_Statics::NewProp_FoodItemClass,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMapRoom_Statics::NewProp_NumFoodItems,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMapRoom_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AMapRoom_Statics::DependentSingletons[])() = {
@@ -135,10 +158,10 @@ AMapRoom::~AMapRoom() {}
 struct Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_MapRoom_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMapRoom, AMapRoom::StaticClass, TEXT("AMapRoom"), &Z_Registration_Info_UClass_AMapRoom, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMapRoom), 152909708U) },
+		{ Z_Construct_UClass_AMapRoom, AMapRoom::StaticClass, TEXT("AMapRoom"), &Z_Registration_Info_UClass_AMapRoom, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMapRoom), 3244817882U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_MapRoom_h_1251097138(TEXT("/Script/UE5CPPSnake"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_MapRoom_h_672110898(TEXT("/Script/UE5CPPSnake"),
 	Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_MapRoom_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_MapRoom_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

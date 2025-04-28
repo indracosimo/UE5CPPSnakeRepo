@@ -1,6 +1,6 @@
 //// Fill out your copyright notice in the Description page of Project Settings.
 
-
+#include "FoodItem.h"
 #include "MapRoom.h"
 #include "Pawn_Player.h"
 #include "Components/InstancedStaticMeshComponent.h"
@@ -37,6 +37,19 @@ static const FRotator NegativeY(0.f, 270.f, 0.f);
 static const FRotator PositiveZ(90.f, 0.f, 0.f);
 static const FRotator NegativeZ(-90.f, 0.f, 0.f);
 
+FVector AMapRoom::GetRandomPointInRoom() const
+{
+	int32 HalfSize = RoomSize / 2;
+	float MaxCoord = HalfSize * GridSize;
+	float MinCoord = -HalfSize * GridSize;
+
+	float X = FMath::FRandRange(MinCoord + 100.f, MaxCoord - 100.f);
+	float Y = FMath::FRandRange(MinCoord + 100.f, MaxCoord - 100.f);
+	float Z = FMath::FRandRange(MinCoord + 100.f, MaxCoord - 100.f);
+
+	return GetActorLocation() + FVector(X, Y, Z);
+}
+
 void AMapRoom::OnConstruction(const FTransform& Transform)
 {
 	Super::OnConstruction(Transform);
@@ -72,17 +85,6 @@ void AMapRoom::OnConstruction(const FTransform& Transform)
 			AddInstance(Walls, PositiveZ, Translation);
 			AddInstance(Walls, NegativeZ, Translation);
 
-			//Walls->AddInstance(FTransform(Translation));
-			//Walls->AddInstance(FTransform(FRotator(0.f, 90.f, 0.f),
-			//	FRotator(0.f, 90.f, 0.f).RotateVector(Translation))); //pass in rotation through mesh so it rotates in the same direction
-			//Walls->AddInstance(FTransform(FRotator(0.f, 180.f, 0.f),
-			//	FRotator(0.f, 180.f, 0.f).RotateVector(Translation))); //Spawns walls on opposite side
-			//Walls->AddInstance(FTransform(FRotator(0.f, 270.f, 0.f),
-			//	FRotator(0.f, 270.f, 0.f).RotateVector(Translation)));
-			//Walls->AddInstance(FTransform(FRotator(90.f, 0.f, 0.f),
-			//	FRotator(90.f, 0.f, 0.f).RotateVector(Translation)));
-			//Walls->AddInstance(FTransform(FRotator(-90.f, 0.f, 0.f),
-			//	FRotator(-90.f, 0.f, 0.f).RotateVector(Translation)));
 		}
 		//edges
 		Translation.Z = WallOffset;
@@ -91,6 +93,18 @@ void AMapRoom::OnConstruction(const FTransform& Transform)
 		AddInstance(Edges, PositiveY, Translation);
 		AddInstance(Edges, NegativeY, Translation);
 	}
+
+	if (FoodItemClass) 
+	{
+		for (int32 i = 0; i < NumFoodItems; ++i) 
+		{
+			FVector SpawnLocation = GetRandomPointInRoom();
+			FActorSpawnParameters SpawnParams;
+			SpawnParams.Owner = this;
+			GetWorld()->SpawnActor<AFoodItem>(FoodItemClass, SpawnLocation, FRotator::ZeroRotator, SpawnParams);
+		}
+	}
+
 }
 
 
