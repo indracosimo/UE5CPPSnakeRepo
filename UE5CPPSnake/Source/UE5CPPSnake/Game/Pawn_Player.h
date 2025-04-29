@@ -6,6 +6,7 @@
 #include "GameFramework/Pawn.h"
 #include "Pawn_Player.generated.h"
 
+
 UCLASS()
 class UE5CPPSNAKE_API APawn_Player : public APawn
 {
@@ -70,5 +71,7 @@ public:
 	float LastRecordedPosition = 0.f;
 
 	TArray<FVector> HeadPositions;
+
+	TArray<FVector> SegmentPositions;
 
 };

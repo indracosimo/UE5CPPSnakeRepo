@@ -114,7 +114,23 @@ void APawn_Player::Tick(float DeltaTime)
 	{
 		LastRecordedPosition = 0.f;
 
-		HeadPositions.Insert(GetActorLocation(), 0);
+		FVector CurrentLocation = GetActorLocation(); //Keeps segments spaced even when standing still
+		
+		if (GetVelocity().IsNearlyZero())
+		{
+			float SimulatedSpeed = 100.f; 
+			FVector ForwardOffset = GetActorForwardVector() * SimulatedSpeed * DeltaTime;
+
+			CurrentLocation = HeadPositions.Num() > 0 ? HeadPositions[0] + ForwardOffset : CurrentLocation + ForwardOffset;
+		}
+		else 
+		{
+			if (HeadPositions.Num() > 0 && CurrentLocation.Equals(HeadPositions[0], 0.1f)) 
+			{
+				return;
+			}
+		}
+		HeadPositions.Insert(CurrentLocation, 0);
 
 		// limits path history so it doesnt grow forever
 		int32 MaxPositions = (BodySegments.Num() + 1) * 10;
@@ -126,26 +142,10 @@ void APawn_Player::Tick(float DeltaTime)
 	UpdateBodySegments();
 }
 
-//void APawn_Player::UpdateBodySegments()
-//{
-//	const float SegmentDistance = SegmentSpacing * 2.0f; 
-//	for (int32 i = 0; i < BodySegments.Num(); ++i)
-//	{
-//		int32 Index = FMath::RoundToInt((i + 1) * SegmentDistance / (LastRecordedPosition * GetVelocity().Size()));
-//
-//		if (HeadPositions.IsValidIndex(Index))
-//		{
-//			FVector TargetLocation = HeadPositions[Index];
-//			FVector CurrentLocation = BodySegments[i]->GetComponentLocation();
-//
-//			FVector NewLocation = FMath::VInterpTo(CurrentLocation, TargetLocation, GetWorld()->GetDeltaSeconds(), 5.0f); //smoothing
-//			BodySegments[i]->SetWorldLocation(NewLocation);
-//		}
-//	}
-//}
 
 void APawn_Player::UpdateBodySegments()
 {
+	const float SegmentDistance = SegmentSpacing * 2.0f;
 	for (int32 i = 0; i < BodySegments.Num(); ++i)
 	{
 		float TargetDistance = (i + 1) * SegmentSpacing;
@@ -158,6 +158,13 @@ void APawn_Player::UpdateBodySegments()
 			float Segment = FVector::Dist(HeadPositions[j - 1], HeadPositions[j]);
 			Traveled += Segment;
 			if (Traveled >= TargetDistance)
+			{
+				
+				float Alpha = (TargetDistance - (Traveled - Segment)) / Segment;
+				TargetLocation = FMath::Lerp(HeadPositions[j - 1], HeadPositions[j], Alpha);
+				break;
+			}
+			else if (j == HeadPositions.Num() - 1) 
 			{
 				TargetLocation = HeadPositions[j];
 				break;
