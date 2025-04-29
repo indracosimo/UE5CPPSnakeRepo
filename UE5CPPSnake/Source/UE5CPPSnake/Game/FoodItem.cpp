@@ -9,7 +9,7 @@
 // Sets default values
 AFoodItem::AFoodItem()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	CollisionComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
 	CollisionComponent->InitSphereRadius(50.f);
@@ -26,7 +26,7 @@ AFoodItem::AFoodItem()
 void AFoodItem::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame
@@ -38,14 +38,14 @@ void AFoodItem::Tick(float DeltaTime)
 
 void AFoodItem::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (OtherActor && (OtherActor!= this)) 
+	if (OtherActor && (OtherActor != this))
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red,
 			TEXT("Touched food"));
 
 
 		APawn_Player* Player = Cast<APawn_Player>(OtherActor);
-		if (Player) 
+		if (Player)
 		{
 			Player->AddSegment();
 			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red,
@@ -55,5 +55,3 @@ void AFoodItem::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* Othe
 		Destroy();
 	}
 }
-
-

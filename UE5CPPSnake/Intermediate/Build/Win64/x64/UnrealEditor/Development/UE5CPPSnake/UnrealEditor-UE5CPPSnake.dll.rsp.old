@@ -46,10 +46,15 @@
 "C:\Users\IndraCosimoBowen-Pao\source\repos\UE5CPPSnakeRepo\UE5CPPSnake\Intermediate\Build\Win64\x64\UnrealEditor\Development\UE5CPPSnake\UE5CPPSnake.cpp.obj"
 "C:\Users\IndraCosimoBowen-Pao\source\repos\UE5CPPSnakeRepo\UE5CPPSnake\Intermediate\Build\Win64\x64\UnrealEditor\Development\UE5CPPSnake\CPP_Snake.cpp.obj"
 "C:\Users\IndraCosimoBowen-Pao\source\repos\UE5CPPSnakeRepo\UE5CPPSnake\Intermediate\Build\Win64\x64\UnrealEditor\Development\UE5CPPSnake\DefaultPlayerController.cpp.obj"
+<<<<<<< HEAD
 "C:\Users\IndraCosimoBowen-Pao\source\repos\UE5CPPSnakeRepo\UE5CPPSnake\Intermediate\Build\Win64\x64\UnrealEditor\Development\UE5CPPSnake\FoodItem.cpp.obj"
+"C:\Users\IndraCosimoBowen-Pao\source\repos\UE5CPPSnakeRepo\UE5CPPSnake\Intermediate\Build\Win64\x64\UnrealEditor\Development\UE5CPPSnake\PerModuleInline.gen.cpp.obj"
+=======
+>>>>>>> parent of aa3541c (Segments, food, food spawner)
+"C:\Users\IndraCosimoBowen-Pao\source\repos\UE5CPPSnakeRepo\UE5CPPSnake\Intermediate\Build\Win64\x64\UnrealEditor\Development\UE5CPPSnake\MapRoom.cpp.obj"
 "C:\Users\IndraCosimoBowen-Pao\source\repos\UE5CPPSnakeRepo\UE5CPPSnake\Intermediate\Build\Win64\x64\UnrealEditor\Development\UE5CPPSnake\Pawn_Player.cpp.obj"
 "C:\Users\IndraCosimoBowen-Pao\source\repos\UE5CPPSnakeRepo\UE5CPPSnake\Intermediate\Build\Win64\x64\UnrealEditor\Development\UE5CPPSnake\PerModuleInline.gen.cpp.obj"
-"C:\Users\IndraCosimoBowen-Pao\source\repos\UE5CPPSnakeRepo\UE5CPPSnake\Intermediate\Build\Win64\x64\UnrealEditor\Development\UE5CPPSnake\MapRoom.cpp.obj"
+"C:\Users\IndraCosimoBowen-Pao\source\repos\UE5CPPSnakeRepo\UE5CPPSnake\Intermediate\Build\Win64\x64\UnrealEditor\Development\UE5CPPSnake\FoodItem.cpp.obj"
 "C:\Users\IndraCosimoBowen-Pao\source\repos\UE5CPPSnakeRepo\UE5CPPSnake\Intermediate\Build\Win64\x64\UnrealEditor\Development\UE5CPPSnake\Default.rc2.res"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Engine\UnrealEditor-Engine.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Core\UnrealEditor-Core.lib"

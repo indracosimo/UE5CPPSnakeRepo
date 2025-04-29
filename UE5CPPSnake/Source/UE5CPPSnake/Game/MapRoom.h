@@ -10,8 +10,8 @@ UCLASS()
 class UE5CPPSNAKE_API AMapRoom : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	AMapRoom();
 
@@ -34,13 +34,13 @@ public:
 	uint32 RoomSize;
 
 	//FOOD spawning
-	UPROPERTY(EditAnywhere, Category ="Spawning")
+	UPROPERTY(EditAnywhere, Category = "Spawning")
 	TSubclassOf<class AFoodItem> FoodItemClass;
 
 	UPROPERTY(EditAnywhere, Category = "Spawning", meta = (ClampMin = 0))
 	int32 NumFoodItems = 5;
 
-private: 
+private:
 	uint32 BuiltGridSize;
 	uint32 BuiltRoomSize;
 

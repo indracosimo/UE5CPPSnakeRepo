@@ -104,7 +104,7 @@ void APawn_Player::AddSegment()
 	BodySegments.Add(NewSegment);
 }
 
-void APawn_Player::Tick(float DeltaTime) 
+void APawn_Player::Tick(float DeltaTime) //Last recorded pos makes it so that the segments are spaced
 {
 	Super::Tick(DeltaTime);
 
@@ -114,17 +114,26 @@ void APawn_Player::Tick(float DeltaTime)
 	{
 		LastRecordedPosition = 0.f;
 
-		FVector CurrentLocation = GetActorLocation(); //Keeps segments spaced even when standing still
+		FVector CurrentLocation = GetActorLocation(); 
 		
 		if (GetVelocity().IsNearlyZero())
 		{
-			float SimulatedSpeed = 100.f; 
+			if (StillPositions.Num() != BodySegments.Num()) //stillpositions retains the last still pos even when standing still, otherwise they all collapse
+			{
+				StillPositions.SetNum(BodySegments.Num());
+				for (int32 i = 0; i < BodySegments.Num(); ++i) 
+				{
+					StillPositions[i] = BodySegments[i]->GetComponentLocation();
+				}
+			}
+			float SimulatedSpeed = 100.f;
 			FVector ForwardOffset = GetActorForwardVector() * SimulatedSpeed * DeltaTime;
-
 			CurrentLocation = HeadPositions.Num() > 0 ? HeadPositions[0] + ForwardOffset : CurrentLocation + ForwardOffset;
 		}
 		else 
 		{
+			StillPositions.Empty();
+
 			if (HeadPositions.Num() > 0 && CurrentLocation.Equals(HeadPositions[0], 0.1f)) 
 			{
 				return;
@@ -145,13 +154,24 @@ void APawn_Player::Tick(float DeltaTime)
 
 void APawn_Player::UpdateBodySegments()
 {
+	if (GetVelocity().IsNearlyZero() && StillPositions.Num() == BodySegments.Num())
+	{
+		for (int32 i = 0; i < BodySegments.Num(); ++i)
+		{
+			FVector CurrentLocation = BodySegments[i]->GetComponentLocation();
+			FVector NewLocation = FMath::VInterpTo(CurrentLocation, StillPositions[i], GetWorld()->GetDeltaSeconds(), 5.0f);
+			BodySegments[i]->SetWorldLocation(NewLocation);
+		}
+		return;
+	}
+
 	const float SegmentDistance = SegmentSpacing * 2.0f;
 	for (int32 i = 0; i < BodySegments.Num(); ++i)
 	{
 		float TargetDistance = (i + 1) * SegmentSpacing;
 		float Traveled = 0.0f;
 
-		FVector TargetLocation = GetActorLocation(); 
+		FVector TargetLocation = GetActorLocation();
 
 		for (int32 j = 1; j < HeadPositions.Num(); ++j)
 		{
@@ -159,12 +179,11 @@ void APawn_Player::UpdateBodySegments()
 			Traveled += Segment;
 			if (Traveled >= TargetDistance)
 			{
-				
 				float Alpha = (TargetDistance - (Traveled - Segment)) / Segment;
 				TargetLocation = FMath::Lerp(HeadPositions[j - 1], HeadPositions[j], Alpha);
 				break;
 			}
-			else if (j == HeadPositions.Num() - 1) 
+			else if (j == HeadPositions.Num() - 1)
 			{
 				TargetLocation = HeadPositions[j];
 				break;
@@ -176,3 +195,5 @@ void APawn_Player::UpdateBodySegments()
 		BodySegments[i]->SetWorldLocation(NewLocation);
 	}
 }
+
+

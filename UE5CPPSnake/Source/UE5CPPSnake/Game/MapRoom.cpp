@@ -9,7 +9,7 @@
 // Sets default values
 AMapRoom::AMapRoom()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	GridSize = 1000.f;
 	RoomSize = 3;
@@ -25,7 +25,7 @@ AMapRoom::AMapRoom()
 }
 
 static FORCEINLINE void AddInstance(UInstancedStaticMeshComponent* Component,
-	const FRotator& Rotation, const FVector& Translation) 
+	const FRotator& Rotation, const FVector& Translation)
 {
 	Component->AddInstance(FTransform(Rotation, Rotation.RotateVector(Translation)));
 }
@@ -60,7 +60,7 @@ void AMapRoom::OnConstruction(const FTransform& Transform)
 	//UE_LOG(LogSnake, Log,
 	//	TEXT("AMapRoom::OnConstruction Building Room Size %d (Built=%d this=%x)"),
 	//	RoomSize, BuiltRoomSize, this);
-	
+
 	BuiltGridSize = GridSize;
 	BuiltRoomSize = RoomSize;
 
@@ -71,11 +71,11 @@ void AMapRoom::OnConstruction(const FTransform& Transform)
 	int32 WallOffset = (HalfSize + 1) * GridSize;
 	FVector Translation(WallOffset, 0.f, 0.f);
 
-	for (int32 y = -HalfSize; y <= HalfSize; y++) 
+	for (int32 y = -HalfSize; y <= HalfSize; y++)
 	{
 		Translation.Y = GridSize * y;
 
-		for (int32 z = -HalfSize; z <= HalfSize; z++) 
+		for (int32 z = -HalfSize; z <= HalfSize; z++)
 		{
 			Translation.Z = GridSize * z;
 			AddInstance(Walls, PositiveX, Translation);
@@ -94,9 +94,9 @@ void AMapRoom::OnConstruction(const FTransform& Transform)
 		AddInstance(Edges, NegativeY, Translation);
 	}
 
-	if (FoodItemClass) 
+	if (FoodItemClass)
 	{
-		for (int32 i = 0; i < NumFoodItems; ++i) 
+		for (int32 i = 0; i < NumFoodItems; ++i)
 		{
 			FVector SpawnLocation = GetRandomPointInRoom();
 			FActorSpawnParameters SpawnParams;
@@ -106,5 +106,3 @@ void AMapRoom::OnConstruction(const FTransform& Transform)
 	}
 
 }
-
-

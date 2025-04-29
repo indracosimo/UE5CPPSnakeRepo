@@ -16,10 +16,6 @@ public:
 
 	APawn_Player();
 
-	void UpdateBodySegments();
-
-	void Tick(float DeltaTime);
-
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -27,9 +23,13 @@ public:
 
 	void Rotate(const struct FInputActionValue& ActionValue);
 
-	void ToggleFreeFly();	
-
+	void ToggleFreeFly();
 	void AddSegment();
+
+	void Tick(float DeltaTime);
+
+	void UpdateBodySegments();
+
 
 	//virtual void BeginPlay() override;
 
@@ -74,4 +74,5 @@ public:
 
 	TArray<FVector> SegmentPositions;
 
+	TArray<FVector> StillPositions;
 };
