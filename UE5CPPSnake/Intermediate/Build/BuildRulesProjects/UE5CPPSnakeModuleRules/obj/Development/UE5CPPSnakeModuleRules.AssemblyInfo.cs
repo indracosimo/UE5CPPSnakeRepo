@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UE5CPPSnakeModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7fbad24ecc1a8e6f2ed52155cc70752b79ab0ffe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7a97665d3d7816ad9026b7a08b5c54b544b41e2")]
 [assembly: System.Reflection.AssemblyProductAttribute("UE5CPPSnakeModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UE5CPPSnakeModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

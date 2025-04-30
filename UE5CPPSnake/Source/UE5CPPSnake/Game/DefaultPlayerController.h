@@ -18,6 +18,10 @@ public:
 
 	virtual void SetupInputComponent() override;
 
+	virtual void Tick(float DeltaTime) override;
+
+	void MoveTowardsMouse(float DeltaTime);
+
 	UPROPERTY()
 	class UInputMappingContext* PawnMappingContext;
 

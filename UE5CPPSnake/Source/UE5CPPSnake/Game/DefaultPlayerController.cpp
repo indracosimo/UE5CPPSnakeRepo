@@ -36,7 +36,7 @@ void ADefaultPlayerController::SetupInputComponent()
 
 	MoveAction = NewObject<UInputAction>(this);
 	MoveAction->ValueType = EInputActionValueType::Axis3D;
-	MapKey(PawnMappingContext, MoveAction, EKeys::W);
+	//MapKey(PawnMappingContext, MoveAction, EKeys::W);
 	MapKey(PawnMappingContext, MoveAction, EKeys::S, true);
 	MapKey(PawnMappingContext, MoveAction, EKeys::A, true, true);
 	MapKey(PawnMappingContext, MoveAction, EKeys::D, false, true);
@@ -52,4 +52,33 @@ void ADefaultPlayerController::SetupInputComponent()
 	
 	FreeFlyAction = NewObject<UInputAction>(this);
 	MapKey(PawnMappingContext, FreeFlyAction, EKeys::F);
+}
+
+void ADefaultPlayerController::MoveTowardsMouse(float DeltaTime)
+{
+	FHitResult HitResult;
+	if (GetHitResultUnderCursor(ECC_Visibility, false, HitResult)) 
+	{
+		FVector MouseLocation = HitResult.Location;
+
+		APawn* ControlledPawn = GetPawn();
+		if (ControlledPawn) 
+		{
+			FVector PawnLocation = ControlledPawn->GetActorLocation();
+			FVector Direction = (MouseLocation - PawnLocation).GetSafeNormal();
+
+			ControlledPawn->AddMovementInput(Direction, 1.0f);
+		}
+	}
+}
+
+void ADefaultPlayerController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+
+	MoveTowardsMouse(DeltaTime);
+    bShowMouseCursor = false;
+    bEnableClickEvents = true;
+    bEnableMouseOverEvents = true;
 }

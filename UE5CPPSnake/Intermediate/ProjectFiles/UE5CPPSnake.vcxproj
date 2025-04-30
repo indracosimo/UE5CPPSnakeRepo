@@ -67,7 +67,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BEF09D83-16EE-3856-8238-848463FF86E1}</ProjectGuid>
+    <ProjectGuid>{C874CFEB-01FD-3C88-8C7D-576EC935527A}</ProjectGuid>
     <RootNamespace>UE5CPPSnake</RootNamespace>
   </PropertyGroup>
   <Import Project="UECommon.props" />
