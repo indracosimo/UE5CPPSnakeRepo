@@ -33,6 +33,21 @@ APawn_Player::APawn_Player()
 	bFreeFly = false;	
 }
 
+void APawn_Player::BeginPlay()
+{
+	Super::BeginPlay();
+
+	if (ScoreWidgetClass)
+	{
+		ScoreWidget = CreateWidget<UScoreWidget>(GetWorld(), ScoreWidgetClass);
+		if (ScoreWidget)
+		{
+			ScoreWidget->AddToViewport();
+			ScoreWidget->SetHighScore(Score);
+		}
+	}
+}
+
 // Called to bind functionality to input
 void APawn_Player::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
@@ -193,6 +208,19 @@ void APawn_Player::UpdateBodySegments()
 		FVector CurrentLocation = BodySegments[i]->GetComponentLocation();
 		FVector NewLocation = FMath::VInterpTo(CurrentLocation, TargetLocation, GetWorld()->GetDeltaSeconds(), 5.0f);
 		BodySegments[i]->SetWorldLocation(NewLocation);
+	}
+}
+
+void APawn_Player::AddScore(int Points)
+{
+	Score += Points;
+	if (ScoreWidget) 
+	{
+		ScoreWidget->SetHighScore(Score);
+	}
+	if (Score >= 5) 
+	{
+		SetActorLocation(FVector(4160.f, 28730.f, 2330.f));
 	}
 }
 

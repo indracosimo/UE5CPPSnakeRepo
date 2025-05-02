@@ -6,6 +6,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Pawn_Player.h"
 
+
 // Sets default values
 AFoodItem::AFoodItem()
 {
@@ -47,9 +48,12 @@ void AFoodItem::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* Othe
 		APawn_Player* Player = Cast<APawn_Player>(OtherActor);
 		if (Player)
 		{
+			Player->AddScore(1);
 			Player->AddSegment();
 			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red,
 				TEXT("GIRTH"));
+			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red,
+				TEXT("1 Point added"));
 		}
 
 		Destroy();

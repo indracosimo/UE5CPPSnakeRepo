@@ -3,8 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ScoreWidget.h"
 #include "GameFramework/Actor.h"
 #include "FoodItem.generated.h"
+
 
 UCLASS()
 class UE5CPPSNAKE_API AFoodItem : public AActor
@@ -23,11 +25,16 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	//int ScoreText = 0;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	class USphereComponent* CollisionComponent;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	class UStaticMeshComponent* MeshComponent;
+
+	UPROPERTY(EditAnywhere, Category = UI)
+	TSubclassOf<UScoreWidget> ScoreWidgetClass;
 
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,

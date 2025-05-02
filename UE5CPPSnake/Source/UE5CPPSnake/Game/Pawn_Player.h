@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ScoreWidget.h"
 #include "GameFramework/Pawn.h"
 #include "Pawn_Player.generated.h"
 
@@ -29,6 +30,10 @@ public:
 	void Tick(float DeltaTime);
 
 	void UpdateBodySegments();
+
+	void AddScore(int Points);
+
+	void BeginPlay();
 
 
 	//virtual void BeginPlay() override;
@@ -75,4 +80,16 @@ public:
 	TArray<FVector> SegmentPositions;
 
 	TArray<FVector> StillPositions;
+
+	UPROPERTY(EditAnywhere, Category = UI)
+	TSubclassOf<UScoreWidget> ScoreWidgetClass;
+
+	UScoreWidget* ScoreWidget;
+
+	int Score = 0;
+
+protected:
+
+
+
 };

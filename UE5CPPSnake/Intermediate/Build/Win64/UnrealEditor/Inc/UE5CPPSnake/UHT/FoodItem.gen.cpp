@@ -11,6 +11,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeFoodItem() {}
 
 // Begin Cross Module References
+COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
@@ -19,6 +20,7 @@ ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 UE5CPPSNAKE_API UClass* Z_Construct_UClass_AFoodItem();
 UE5CPPSNAKE_API UClass* Z_Construct_UClass_AFoodItem_NoRegister();
+UE5CPPSNAKE_API UClass* Z_Construct_UClass_UScoreWidget_NoRegister();
 UPackage* Z_Construct_UPackage__Script_UE5CPPSnake();
 // End Cross Module References
 
@@ -126,17 +128,28 @@ struct Z_Construct_UClass_AFoodItem_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CollisionComponent_MetaData[] = {
 		{ "Category", "FoodItem" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//int ScoreText = 0;\n" },
+#endif
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Game/FoodItem.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "int ScoreText = 0;" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MeshComponent_MetaData[] = {
 		{ "Category", "FoodItem" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Game/FoodItem.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ScoreWidgetClass_MetaData[] = {
+		{ "Category", "UI" },
+		{ "ModuleRelativePath", "Game/FoodItem.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CollisionComponent;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MeshComponent;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_ScoreWidgetClass;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -150,9 +163,11 @@ struct Z_Construct_UClass_AFoodItem_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFoodItem_Statics::NewProp_CollisionComponent = { "CollisionComponent", nullptr, (EPropertyFlags)0x00100000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFoodItem, CollisionComponent), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CollisionComponent_MetaData), NewProp_CollisionComponent_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFoodItem_Statics::NewProp_MeshComponent = { "MeshComponent", nullptr, (EPropertyFlags)0x00100000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFoodItem, MeshComponent), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MeshComponent_MetaData), NewProp_MeshComponent_MetaData) };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AFoodItem_Statics::NewProp_ScoreWidgetClass = { "ScoreWidgetClass", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFoodItem, ScoreWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UScoreWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ScoreWidgetClass_MetaData), NewProp_ScoreWidgetClass_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFoodItem_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFoodItem_Statics::NewProp_CollisionComponent,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFoodItem_Statics::NewProp_MeshComponent,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFoodItem_Statics::NewProp_ScoreWidgetClass,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFoodItem_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AFoodItem_Statics::DependentSingletons[])() = {
@@ -195,10 +210,10 @@ AFoodItem::~AFoodItem() {}
 struct Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_FoodItem_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFoodItem, AFoodItem::StaticClass, TEXT("AFoodItem"), &Z_Registration_Info_UClass_AFoodItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFoodItem), 2821836388U) },
+		{ Z_Construct_UClass_AFoodItem, AFoodItem::StaticClass, TEXT("AFoodItem"), &Z_Registration_Info_UClass_AFoodItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFoodItem), 3730101062U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_FoodItem_h_1904037368(TEXT("/Script/UE5CPPSnake"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_FoodItem_h_159675534(TEXT("/Script/UE5CPPSnake"),
 	Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_FoodItem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_IndraCosimoBowen_Pao_source_repos_UE5CPPSnakeRepo_UE5CPPSnake_Source_UE5CPPSnake_Game_FoodItem_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

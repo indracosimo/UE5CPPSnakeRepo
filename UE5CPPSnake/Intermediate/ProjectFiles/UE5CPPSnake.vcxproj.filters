@@ -42,6 +42,12 @@
     <Filter Include="Source\UE5CPPSnake\Game">
       <UniqueIdentifier>{7EEB8E10-8CEC-3C59-AC3C-095A14DF572B}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\CPP_GameMode.cpp">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\CPP_GameMode.h">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UE5CPPSnake\Game\CPP_Snake.cpp">
       <Filter>Source\UE5CPPSnake\Game</Filter>
     </ClCompile>
@@ -70,6 +76,12 @@
       <Filter>Source\UE5CPPSnake\Game</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UE5CPPSnake\Game\Pawn_Player.h">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\ScoreWidget.cpp">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\ScoreWidget.h">
       <Filter>Source\UE5CPPSnake\Game</Filter>
     </ClCompile>
   </ItemGroup>
