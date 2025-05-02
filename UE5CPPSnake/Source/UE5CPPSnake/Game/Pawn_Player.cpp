@@ -218,7 +218,7 @@ void APawn_Player::AddScore(int Points)
 	{
 		ScoreWidget->SetHighScore(Score);
 	}
-	if (Score >= 5) 
+	if (Score == 5) 
 	{
 		SetActorLocation(FVector(4160.f, 28730.f, 2330.f));
 	}
