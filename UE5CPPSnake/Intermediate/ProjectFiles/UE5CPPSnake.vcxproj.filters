@@ -42,6 +42,12 @@
     <Filter Include="Source\UE5CPPSnake\Game">
       <UniqueIdentifier>{7EEB8E10-8CEC-3C59-AC3C-095A14DF572B}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\CPP_AI_Pawn.cpp">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\CPP_AI_Pawn.h">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\UE5CPPSnake\Game\CPP_GameMode.cpp">
       <Filter>Source\UE5CPPSnake\Game</Filter>
     </ClCompile>
@@ -52,6 +58,12 @@
       <Filter>Source\UE5CPPSnake\Game</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UE5CPPSnake\Game\CPP_Snake.h">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\DefaultAIController.cpp">
+      <Filter>Source\UE5CPPSnake\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5CPPSnake\Game\DefaultAIController.h">
       <Filter>Source\UE5CPPSnake\Game</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\UE5CPPSnake\Game\DefaultPlayerController.cpp">
